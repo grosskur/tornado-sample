@@ -13,8 +13,17 @@ tornado.httpclient.AsyncHTTPClient.configure(
 
 
 class MainHandler(tornado.web.RequestHandler):
+    @tornado.web.asynchronous
     def get(self):
-        self.write('Hello, world')
+        client = tornado.httpclient.AsyncHTTPClient()
+        client.fetch('http://www.google.com/', self.handle_request)
+
+    def handle_request(self, response):
+        if response.error:
+            self.write('Error: {}'.format(response.error))
+        else:
+            self.write(response.body)
+        self.finish()
 
 
 if __name__ == '__main__':
