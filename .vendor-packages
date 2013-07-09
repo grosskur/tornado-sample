@@ -4,4 +4,4 @@ curl 7.31.0
 libxml2 2.9.1
 libev 4.15
 libevent 2.0.21-stable
-libmemcached 1.0.17
+libmemcached 1.0.16
