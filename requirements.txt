@@ -1,5 +1,7 @@
+distribute==0.6.34
 hiredis==0.1.1
+lxml==3.2.3
 pycurl==7.19.0
+simplejson==3.3.0
 tornado==3.1
 wsgiref==0.1.2
-lxml==3.2.1
