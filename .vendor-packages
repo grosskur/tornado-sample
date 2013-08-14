@@ -1,8 +1,7 @@
 openssl 1.0.1e
 c-ares 1.10.0
-curl 7.31.0
+curl 7.32.0
 libxml2 2.9.1
-libev 4.15
 libevent 2.0.21-stable
 cyrus-sasl 2.1.26
 libmemcached 1.0.16
