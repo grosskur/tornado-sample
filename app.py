@@ -2,6 +2,7 @@
 Example application using Tornado and Curl
 """
 import os
+import sys
 
 import tornado.httpclient
 import tornado.ioloop
@@ -26,9 +27,18 @@ class MainHandler(tornado.web.RequestHandler):
         self.finish()
 
 
-if __name__ == '__main__':
+def main(args):
     app = tornado.web.Application([
         (r'/', MainHandler),
     ])
-    app.listen(os.getenv('PORT', 8000))
+    port = os.getenv('PORT', 8000)
+    print >> sys.stderr, 'listening on port {}'.format(port)
+    app.listen(port)
     tornado.ioloop.IOLoop.instance().start()
+
+
+if __name__ == '__main__':
+    try:
+        main(sys.argv[1:])
+    except KeyboardInterrupt:
+        print >> sys.stderr, 'interrupted'
